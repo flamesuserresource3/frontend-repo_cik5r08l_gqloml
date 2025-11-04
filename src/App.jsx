@@ -1,28 +1,25 @@
-import { useState } from 'react'
+import React from 'react';
+import Sidebar from './components/Sidebar';
+import Header from './components/Header';
+import MetricsGrid from './components/MetricsGrid';
+import EndpointsTable from './components/EndpointsTable';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white text-gray-900">
+      <div className="flex">
+        <Sidebar />
+        <main className="flex-1 min-w-0">
+          <Header />
+          <div className="px-4 md:px-6 py-6 space-y-6">
+            <MetricsGrid />
+            <EndpointsTable />
+          </div>
+        </main>
       </div>
+      <footer className="px-4 md:px-6 py-6 text-xs text-gray-500">
+        Built for visibility and control — track requests, errors, and performance across your APIs.
+      </footer>
     </div>
-  )
+  );
 }
-
-export default App
